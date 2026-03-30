@@ -4,7 +4,7 @@ install:
 	npm install
 
 db-migrate:
-	until /usr/bin/pg_isready -h $$DATABASE_HOST -U $$DATABASE_USERNAME; do sleep 1; done && npm run migrate
+	until nc -z $$DATABASE_HOST 5432; do sleep 1; done && npm run migrate
 
 build:
 	npm run build
