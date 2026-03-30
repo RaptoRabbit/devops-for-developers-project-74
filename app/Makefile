@@ -4,6 +4,8 @@ install:
 	npm install
 
 db-migrate:
+	cd .. && docker-compose up -d db
+	sleep 5
 	npm run migrate
 
 build:
