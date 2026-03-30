@@ -4,8 +4,7 @@ build:
 	docker-compose build
 
 setup:
-	docker-compose up -d db
-	docker-compose run --rm app make setup
+	docker-compose run --rm --volume ./app:/app app make setup
 
 test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
