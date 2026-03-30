@@ -17,6 +17,8 @@ services:
       context: .
       dockerfile: Dockerfile.production
     command: make test
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
