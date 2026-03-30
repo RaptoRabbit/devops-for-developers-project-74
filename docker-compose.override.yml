@@ -8,6 +8,9 @@ services:
     command: make dev
     ports:
       - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
 
   caddy:
     image: caddy:latest
