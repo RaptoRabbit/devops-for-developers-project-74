@@ -1,6 +1,7 @@
 services:
   app:
-    build: .
-    volumes:
-      - ./app:/app
+    image: raptorabbit/devops-for-developers-project-74
+    build:
+      context: .
+      dockerfile: Dockerfile.production
     command: make test

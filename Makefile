@@ -1,4 +1,4 @@
-.PHONY: build setup test up down
+.PHONY: build setup test up down build-production push
 
 build:
 	docker-compose build
@@ -14,3 +14,9 @@ up:
 
 down:
 	docker-compose down
+
+build-production:
+	docker-compose -f docker-compose.yml build app
+
+push:
+	docker-compose -f docker-compose.yml push app
