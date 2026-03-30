@@ -4,7 +4,7 @@ install:
 	npm install
 
 db-migrate:
-	until /bin/nc -z $$DATABASE_HOST 5432; do sleep 1; done && npm run migrate
+	until echo > /dev/tcp/$$DATABASE_HOST/5432 2>/dev/null; do sleep 1; done && npm run migrate
 
 build:
 	npm run build
