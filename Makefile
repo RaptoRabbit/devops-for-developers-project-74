@@ -1,4 +1,4 @@
-.PHONY: build setup test up down build-production push
+.PHONY: build setup test up down build-production push ci
 
 build:
 	docker-compose build
@@ -7,6 +7,9 @@ setup:
 	docker-compose run --rm app make setup
 
 test:
+	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+
+ci:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 up:
